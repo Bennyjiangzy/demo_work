@@ -1,9 +1,9 @@
 {
-    "translateapiurl":"http://localhost:8000/translate",
+    "translateapiurl":"http://146.190.174.177:8000/translate",
     "dogapiurl":{
-        "getimg":"http://localhost:8000/dog/image",
-        "deleteimg":"http://localhost:8000/dog/saveimage",
-        "saveimg":"http://localhost:8000/dog/deleteimage"
+        "getimg":"http://146.190.174.177:8000/dog/image",
+        "deleteimg":"http://146.190.174.177:8000/dog/saveimage",
+        "saveimg":"http://146.190.174.177:8000/dog/deleteimage"
     },
     "translateoptions":{
         "en":"English",
