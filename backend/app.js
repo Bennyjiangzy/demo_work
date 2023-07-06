@@ -7,6 +7,7 @@ const app = express();
 // routers
 import dogapiRouter from './router/dogapi.js';
 import translateRouter from './router/translateapi.js'
+import jokerRouter from './router/jokeapi.js'
 
 
 app.use(cors());
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/dog',dogapiRouter);
 app.use('/translate',translateRouter);
+app.use('/joke',jokerRouter);
 
 
 // app.post('/test', (req, res) => {

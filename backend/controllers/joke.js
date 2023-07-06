@@ -1,22 +1,22 @@
 import fs from 'fs';
 import fetch from 'node-fetch'
-var jokeAPIurl= "https://v2.jokeapi.dev";
+var jokeAPIurl= null;
 
-// fs.readFile('./appsettings.json', 'utf8', (err, data) =>
-// {
-//     if (err) {
-//         console.error(err);
-//         return;
-//     }
-//     try {
-//         const settings = JSON.parse(data);
-//         jokeAPIurl       = settings.jokeAPI.url;
+fs.readFile('./appsettings.json', 'utf8', (err, data) =>
+{
+    if (err) {
+        console.error(err);
+        return;
+    }
+    try {
+        const settings = JSON.parse(data);
+        jokeAPIurl       = settings.jokeAPI.url;
 
-//     } catch (error)
-//     {
-//         console.error(error);
-//     }
-// })
+    } catch (error)
+    {
+        console.error(error);
+    }
+})
 
 
 export async function getjoke(req,res)
