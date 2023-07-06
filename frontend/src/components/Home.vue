@@ -39,8 +39,5 @@ export default {
 </template>
 
 <style>
-#app {
-
-}
 </style>
 
