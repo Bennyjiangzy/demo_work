@@ -1,13 +1,16 @@
 <template>
-
+    <div v-if="saved">
+            <p>Image saved!</p>
+    </div>
     <div id="app">
 
         <button @click="addData" class="button-spacing">Like</button>
         <button @click="getData" class="button-spacing">click me</button>
         <router-link to="/dogshow" class="button-spacing">Gallery</router-link>
         <div v-if="responseData">
-            <img :src="responseData.message" alt="doggy" style="margin-top: 10px;"/>
+            <img :src="responseData.message" alt="doggy" style="margin-top: 10px;" class="dog-image"/>
         </div>
+        
     
     </div>
     
@@ -23,6 +26,7 @@
         data() {
             return {
             responseData: null,
+            saved: false
             };
         },
         mounted() {
@@ -30,6 +34,7 @@
         },
         methods: {
             getData() {
+            this.saved = false;
             axios.get(settings.dogapiurl.getimg)
             .then((response) => {
                 this.responseData = response.data
@@ -41,6 +46,7 @@
             },
             addData()
             {
+                this.saved = true;
                 const databody = {
                     imglink: this.responseData
                 }
@@ -64,6 +70,12 @@
       <style scoped>
     .button-spacing {
     margin-right: 10px; 
+    }
+
+    .dog-image {
+        width: 920px; 
+        height: 740px; 
+        font-size: 14px;
     }
       </style>
       

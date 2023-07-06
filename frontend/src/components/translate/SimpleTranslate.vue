@@ -114,10 +114,10 @@
                           } catch (error) {
                             if (error.response && error.response.status === 500) {
                               console.log("Server error occurred:", error.response.data);
-                              this.translatedtext = "Try again";
+                              this.translatedtext = "Try again, sometimes the translate API server is slow";
                             } else {
                               console.log("An error occurred:", error);
-                              this.translatedtext = "Try again";
+                              this.translatedtext = "Try again, sometimes the translate API server is slow";
                             }
                           }
                     },2000);
