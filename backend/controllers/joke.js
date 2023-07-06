@@ -2,6 +2,9 @@ import fs from 'fs';
 import fetch from 'node-fetch'
 var jokeAPIurl= null;
 
+///<summary>
+/// read the api settings
+///</summary>
 fs.readFile('./appsettings.json', 'utf8', (err, data) =>
 {
     if (err) {
@@ -18,9 +21,15 @@ fs.readFile('./appsettings.json', 'utf8', (err, data) =>
     }
 })
 
-
+///<summary>
+/// extract the parameters from request call and send a get request to real joke api
+///</summary>
+///<return>
+/// return the joke
+///</return>
 export async function getjoke(req,res)
 {
+    console.log("joke req get")
     const data = req.body
     const categories = Object.values(data.categories).join(",");
 
@@ -33,11 +42,11 @@ export async function getjoke(req,res)
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
+        console.log("joke res send")
         res.status(200).send(data);
     })
     .catch((error) => {
         console.error(error);
         res.status(401).send("error");
     });
-    // res.status(200).send("asd")
 }

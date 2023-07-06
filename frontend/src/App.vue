@@ -1,7 +1,4 @@
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import SimpleTranslate from './components/SimpleTranslate.vue'
-// import DogPic from './components/DogPic.vue';
 
 export default {
   name: 'App',

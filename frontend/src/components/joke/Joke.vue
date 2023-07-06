@@ -35,16 +35,14 @@
         </tr>
         <tr>
             <td>
-                <button type="submit" style="margin-right: 5px;">Submit</button>
+                <input type="button" value="Translate" @click="sendValueToComponent2" style="margin-left: 5px;">
             </td>
             <td>
-                <input type="button" value="Translate" @click="sendValueToComponent2" style="margin-left: 5px;">
+                <button type="submit" style="margin-right: 5px;">Submit</button>
             </td>
             
             
         </tr>
-        
-
         
         </tbody>
         
@@ -81,13 +79,24 @@
             langoptions:settings.jokelangoptions,
             categoriesptions:settings.jokecategories,
             flagsoptions:settings.jokeflags,
-            translatedtext:"Select option and enter submit for the joke"
+            translatedtext:"Select option and click submit to get the joke"
         };
         },
         methods: {
+            ///<summary>
+            /// send the joke text to translate component to translate
+            ///</summary>
             sendValueToComponent2() {
                 this.$emit('send-value', this.translatedtext);
             },
+
+
+            ///<summary>
+            /// call the jokeapi to get a joke based on user options
+            ///</summary>
+            ///<return> 
+            /// return the joke text reponse from backend api
+            ///</return>
             submitForm(event) {
                 event.preventDefault(); 
                 
@@ -99,7 +108,7 @@
                 };
 
 
-                axios.post(settings.jokeapi, requestBody,{headers:{'Content-Type': 'application/json'}})
+                axios.post(`${settings.backendbaseurl}${settings.jokeapi}`, requestBody,{headers:{'Content-Type': 'application/json'}})
                     .then(response => {
                         if(response.data.type == "single")
                         {

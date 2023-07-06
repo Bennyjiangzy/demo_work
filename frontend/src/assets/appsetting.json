@@ -1,12 +1,13 @@
 {
-    "translateapiurl":"http://146.190.174.177:8000/translate",
+    "backendbaseurl":"http://localhost:8000",
+    "translateapiurl":"/translate",
     "dogapiurl":{
-        "getimg":"http://146.190.174.177:8000/dog/image",
-        "deleteimg":"http://146.190.174.177:8000/dog/deleteimage",
-        "saveimg":"http://146.190.174.177:8000/dog/saveimage",
-        "allimg":"http://146.190.174.177:8000/dog/allimage"
+        "getimg":"/dog/image",
+        "deleteimg":"/dog/deleteimage",
+        "saveimg":"/dog/saveimage",
+        "allimg":"/dog/allimage"
     },
-    "jokeapi":"http://146.190.174.177:8000/joke",
+    "jokeapi":"/joke",
     "translateoptions":{
         "en":"English",
         "ar":"Arabic",

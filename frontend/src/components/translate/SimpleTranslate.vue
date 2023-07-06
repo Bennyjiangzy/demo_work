@@ -62,12 +62,24 @@
     };
     },
     methods: {
+        ///<summary>
+        /// default submitForm
+        ///</summary>
         submitForm() {
         },
+        
+        ///<summary>
+        /// Action when translate language option value has changed and will call translate call
+        ///</summary>
+        ///<return> </return>
         handleOptionChange()
         {
             this.handleInput();
         },
+
+        ///<summary>
+        /// Action when exchange lang button has clicked and will call translate call
+        ///</summary>
         exchangeData()
         {
             if (this.selectedOptiontext != "auto"){
@@ -78,7 +90,12 @@
             }
          
         },
-
+        ///<summary>
+        /// call the translate api
+        ///</summary>
+        ///<return>
+        /// return the translated text if not give some error msg
+        ///</return>
         async handleInput() {
             try {
                 clearTimeout(this.timeoutId);
@@ -90,6 +107,7 @@
                 
                 if (formData.text != ""){
                     this.translatedtext = "loading...."
+                    /// use a setimeout to wait the user finish typing then send the call
                     this.timeoutId = setTimeout(async () => {
                       try {
                             const response = await this.fetchData(formData);
@@ -114,10 +132,10 @@
                           } catch (error) {
                             if (error.response && error.response.status === 500) {
                               console.log("Server error occurred:", error.response.data);
-                              this.translatedtext = "Try again, sometimes the translate API server is slow";
+                              this.translatedtext = "Type a space in textbox to try again, sometimes the translate API server is slow";
                             } else {
                               console.log("An error occurred:", error);
-                              this.translatedtext = "Try again, sometimes the translate API server is slow";
+                              this.translatedtext = "Type a space in textbox to try again, sometimes the translate API server is slow";
                             }
                           }
                     },2000);
@@ -128,11 +146,19 @@
         
             
         },
+        ///<summary>
+        /// the actual call for translate call
+        ///</summary>
+        ///<return> translated text response</return>
         fetchData(formData) {
-            return axios.post(settings.translateapiurl, formData,{headers:{'Content-Type': 'application/json'}});
+            return axios.post(`${settings.backendbaseurl}${settings.translateapiurl}`, formData,{headers:{'Content-Type': 'application/json'}});
         }
         
     },
+    ///<summary>
+    /// listen the value from joke component after recive the joke fill the translated
+    /// text and call the translate api
+    ///</summary>
     watch: {
       receivedValue(newValue) {
         this.inputText=newValue

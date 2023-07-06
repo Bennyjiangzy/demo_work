@@ -29,28 +29,40 @@
             saved: false
             };
         },
+        ///<summary>
+        /// auto call the dogimg api as the liftcycle of web pages
+        ///</summary>
         mounted() {
             this.getData();
         },
         methods: {
+            ///<summary>
+            /// call the dogimg api for a random dog pages
+            ///</summary>
+            ///<return> 
+            /// return the img src address
+            ///</return>
             getData() {
-            this.saved = false;
-            axios.get(settings.dogapiurl.getimg)
-            .then((response) => {
-                this.responseData = response.data
-            })
-            .catch((error) => {
-    
-            console.error(error);
-            });
+                this.saved = false;
+                axios.get(`${settings.backendbaseurl}${settings.dogapiurl.getimg}`)
+                .then((response) => {
+                    this.responseData = response.data
+                })
+                .catch((error) => {
+        
+                console.error(error);
+                });
             },
+            ///<summary>
+            /// call the save dogimg api for save current img src and id
+            ///</summary>
             addData()
             {
                 this.saved = true;
                 const databody = {
                     imglink: this.responseData
                 }
-                axios.post(settings.dogapiurl.saveimg, databody,{headers:{'Content-Type': 'application/json'}})
+                axios.post(`${settings.backendbaseurl}${settings.dogapiurl.saveimg}`, databody,{headers:{'Content-Type': 'application/json'}})
                 .then((response) => {
                     console.log(response.status)
                 })

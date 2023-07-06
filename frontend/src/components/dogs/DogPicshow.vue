@@ -27,24 +27,30 @@
             };
         },
         methods: {
-            deleteImage(id) {
-                const bodydata =
-                {
-                    imgid: id
-                }
-                axios.post(settings.dogapiurl.deleteimg, bodydata,{headers:{'Content-Type': 'application/json'}})
-                .then((response) => {
-                    console.log(response.data)
-                    this.images = response.data
-                })
-                .catch((error) => {
-        
-                console.error(error);
-                });
-                }
-        },
+              ///<summary>
+              /// call the delete dogimg api to delete the img
+              ///</summary>
+              deleteImage(id) {
+                  const bodydata =
+                  {
+                      imgid: id
+                  }
+                  axios.post(`${settings.backendbaseurl}${settings.dogapiurl.deleteimg}`, bodydata,{headers:{'Content-Type': 'application/json'}})
+                  .then((response) => {
+                      console.log(response.data)
+                      this.images = response.data
+                  })
+                  .catch((error) => {
+          
+                  console.error(error);
+                  });
+                  }
+          },
+        ///<summary>
+        /// call the current dogimg list api and refresh the dog imgs in real-time
+        ///</summary>
         created() {
-            axios.get(settings.dogapiurl.allimg)
+            axios.get(`${settings.backendbaseurl}${settings.dogapiurl.allimg}`)
             .then((response) => {
                 console.log(response.data)
                 this.images = response.data
@@ -53,7 +59,7 @@
     
             console.error(error);
             });
-            },
+        },
         name: 'DogPic',
         props: {
           msg: String

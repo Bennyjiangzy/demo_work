@@ -1,5 +1,4 @@
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import SimpleTranslate from './translate/SimpleTranslate.vue'
 import DogPic from './dogs/DogPic.vue';
 import Joke from './joke/Joke.vue';
@@ -12,6 +11,7 @@ export default {
     }
   },
   methods: {
+    ///<summary>recive the joke value from joke component</summary>
     handleValueFromjoke(value) {
       this.valueFromjoke = value;
     }
@@ -27,9 +27,11 @@ export default {
 
 <template>
   <h1>Happy Joke Translate Dog API demo</h1>
+  <!-- listen translate joke value from joke component -->
   <Joke @send-value="handleValueFromjoke"/>
   <br>
   <br>
+  <!-- parse the translate joke value to translate component and execute the translation call -->
   <SimpleTranslate :received-value="valueFromjoke"/>
 
   <DogPic/>

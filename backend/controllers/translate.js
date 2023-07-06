@@ -4,6 +4,9 @@ import fetch from 'node-fetch';
 var translateAPIurl = null;
 var translateAPIkey= null;
 
+///<summary>
+/// read the api settings
+///</summary>
 fs.readFile('./appsettings.json', 'utf8', (err, data) =>
 {
     if (err) {
@@ -21,10 +24,16 @@ fs.readFile('./appsettings.json', 'utf8', (err, data) =>
     }
 })
 
+///<summary>
+/// extract the parameters from request call and send a POST request to real translate api
+///</summary>
+///<return>
+/// return the translated text 
+///</return>
 export async function posttexttotranslate(req,res)
 {
     try {
-        console.log("request get: " + req.body.text);
+        console.log("trans get: " + req.body.text);
         const requestBody = req.body;
         const translate = await fetch(translateAPIurl, {
           method: "POST",
@@ -43,7 +52,7 @@ export async function posttexttotranslate(req,res)
         }
     
         const text = await translate.json();
-        console.log("response get", text);
+        console.log("trans send: ", text);
         res.status(200).send(text);
       } catch (error) {
         console.error("An error occurred during translation:", error);
