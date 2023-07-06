@@ -11,7 +11,7 @@ This is a demo work for API integration. In Backend I used Node&Express. In Fron
 You need to replace the api address and add api key in backend for LibreTranslate.
 And change the API address in frontend
 
-* **Backend**: LibreTranslate API address (or you can [deploy](https://github.com/LibreTranslate/LibreTranslate/tree/main#install-and-run) by your own like me)
+* **Backend**: LibreTranslate API address (you can [deploy](https://github.com/LibreTranslate/LibreTranslate/tree/main#install-and-run) by your. I have already deployed one on live. I will not close it until my demo is done. If you need it you don't need to change the settings below)
 ```json
 /backend/appsettings.json
 
