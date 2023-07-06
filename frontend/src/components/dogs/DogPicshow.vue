@@ -2,7 +2,7 @@
 
     <div id="app" >
         <router-link to="/" class="button-spacing">Back Home</router-link>
-        <h1>Your dogs Gallery</h1>
+        <h1>Your Dogs Imags Gallery</h1>
         <div class="row image-container">
         <div v-for="(image, index) in images" :key="index" class="d-flex flex-column align-items-center">
             <img :src="image.message" :id="index" alt="Image"  class="gallery-image"/>

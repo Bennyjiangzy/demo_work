@@ -1,6 +1,6 @@
 <template>
 
-<button @click="exchangeData"  class="btn btn-icon"><i class="bi bi-arrow-left-right"></i></button>
+<button @click="exchangelangoptions"  class="btn btn-icon"><i class="bi bi-arrow-left-right"></i></button>
 <form @submit="submitForm">
 <div class="container">
     <div id="div1" class="column">
@@ -71,7 +71,7 @@
         },
         
         ///<summary>
-        /// Action when translate language option value has changed and will call translate call
+        /// Action when translate language option value has selected and will call translate call
         ///</summary>
         ///<return> </return>
         handleOptionChange()
@@ -82,7 +82,7 @@
         ///<summary>
         /// Action when exchange lang button has clicked and will call translate call
         ///</summary>
-        exchangeData()
+        exchangelangoptions()
         {
             if (this.selectedOptiontext != "auto"){
                 var temp = this.selectedOptiontext;
@@ -109,12 +109,13 @@
                 
                 if (formData.text != ""){
                     this.translatedtext = "loading...."
+                    this.autodetectsource = null;
+                    this.autodetectrate = null;
                     /// use a setimeout to wait the user finish typing then send the call
                     this.timeoutId = setTimeout(async () => {
                       try {
                             const response = await this.fetchData(formData);
                             this.translatedtext = response.data.translatedText;
-                            
                             if (this.selectedOptiontext == 'auto')
                             {
                               console.log(this.selectedOptiontext)
@@ -125,11 +126,7 @@
                               console.log(this.autodetectsource)
                               console.log(this.autodetectrate)
                             }
-                            else
-                            {
-                              this.autodetectsource = null
-                              this.autodetectrate = null
-                            }
+                           
                             
                           } catch (error) {
                             if (error.response && error.response.status === 500) {
