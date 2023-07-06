@@ -6,7 +6,10 @@ This is a demo work for API integration. In Backend I used Node&Express. In Fron
 * Allow user to get a random dogs img and save, delete the imgs
 
 [Live http://146.190.174.177:8080](http://146.190.174.177:8080)
-## Installation
+
+![image](./structure.png)
+
+# Installation
 ### Common changes <a id="common-changes"></a>
 You need to replace the api address and add api key in backend for LibreTranslate.
 And change the API address in frontend
@@ -73,7 +76,7 @@ npm run serve
 ```
 You should be able to see both back and front end running on port 8000 and 8080 respectively. Go visit http://localhost:8080 
 
-## Challenges
+# Challenges
 I met two challenges in Technical and one in decision
 
 ### Technical
@@ -83,7 +86,7 @@ I met two challenges in Technical and one in decision
 ### Decision
 * **Misunderstanding about requirement**: In the first two days of development, I misunderstood the meaning of the requirements and did not integrate the APIs, but did different functions separately until I foud this mistake in the next afternoon. I first re-read the requirements carefully, tested the given dog and joke API by poostman. I finally choose joke api since is a pure text response. The time is urgen, so I re-planned the map and execute it. Spent two hour in build and testing backend, another two hour in frontend. And one hour in testing on cloud. As a result, I successfully complete the correct requrement in the end of the day. I think it is very common to misinterpret user needs or change user needs in the real development process. You must have the ability to re-plan the development route according to the needs in anypart of the development.
 
-## Other
+# Other
 
 I designed serveral features for future update and upgrade
 
