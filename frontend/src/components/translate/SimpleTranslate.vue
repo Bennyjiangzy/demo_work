@@ -1,19 +1,20 @@
 <template>
 
-<button @click="exchangeData">Exchange</button>
+<button @click="exchangeData"  class="btn btn-icon"><i class="bi bi-arrow-left-right"></i></button>
 <form @submit="submitForm">
 <div class="container">
     <div id="div1" class="column">
-    <select v-model="selectedOptiontext" @change="handleOptionChange">
+      <div class="d-flex flex-column align-items-center">
+    <select v-model="selectedOptiontext" @change="handleOptionChange" class="custom-select col-6">
         <option disabled value="">Please select one</option>
         <option v-for="(item, index) in options" :key="index" :value="index">{{ item }}</option>
         <option value="auto">Auto Detect</option>
     </select>
-    <br>
+  </div>
     <textarea 
       type="text" 
       v-model="inputText" 
-      rows="20"
+      rows="10"
       cols="40"
       @input="handleInput"
       class="no-resize"
@@ -24,15 +25,16 @@
 
 
     <div id="div2" class="column">
-    <select v-model="selectedOptiontotranslate" @change="handleOptionChange">
+      <div class="d-flex flex-column align-items-center">
+    <select v-model="selectedOptiontotranslate" @change="handleOptionChange" class="custom-select col-6">
         <option disabled value="">Please select one</option>
         <option v-for="(item, index) in options" :key="index" :value="index">{{ item }}</option>
     </select>
-    <br>
+    </div>
     <textarea 
       type="text" 
       v-model="translatedtext" 
-      rows="20"
+      rows="10"
       cols="40"
       class="no-resize"
       style="margin-top: 10px;"
@@ -199,5 +201,6 @@
   margin-left: -10px;
   padding-left: 5px;
 }
+
   </style>
   

@@ -1,5 +1,5 @@
 {
-    "backendbaseurl":"http://localhost:8000",
+    "backendbaseurl":"http://146.190.174.177:8000",
     "translateapiurl":"/translate",
     "dogapiurl":{
         "getimg":"/dog/image",

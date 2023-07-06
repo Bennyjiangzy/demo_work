@@ -3,10 +3,10 @@
     <div id="app" >
         <router-link to="/" class="button-spacing">Back Home</router-link>
         <h1>Your dogs Gallery</h1>
-        <div class="image-container">
-        <div v-for="(image, index) in images" :key="index" class="image-container">
+        <div class="row image-container">
+        <div v-for="(image, index) in images" :key="index" class="d-flex flex-column align-items-center">
             <img :src="image.message" :id="index" alt="Image"  class="gallery-image"/>
-            <button @click="deleteImage(index)" class="delete-button small-button">Delete</button>
+            <button @click="deleteImage(index)" class="btn btn-outline-danger">Delete</button>
         </div>
         </div>
     

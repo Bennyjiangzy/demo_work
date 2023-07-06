@@ -1,6 +1,6 @@
 <template>
 
-    <form  @submit="submitForm">
+    <form  @submit="submitForm" class="d-flex flex-column align-items-center">
     <div class="container">    
         
         <table>
@@ -8,7 +8,7 @@
         <tr>
             <td>Select category / categories:</td>
             <td>
-                <select v-model="selectedOptiontocategory" required>
+                <select v-model="selectedOptiontocategory" class="custom-select" required>
                 <option disabled value="">Please select one</option>
                 <option v-for="(item, index) in categoriesptions" :key="index" :value="index">{{ item }}</option>
                  </select>
@@ -17,7 +17,7 @@
         <tr>
             <td>Select Language:</td>
             <td>
-                <select v-model="selectedOptiontojoke" required>
+                <select v-model="selectedOptiontojoke" class="custom-select" required>
                 <option disabled value="">Please select one</option>
                 <option v-for="(item, index) in langoptions" :key="index" :value="index">{{ item }}</option>
                  </select>
@@ -27,18 +27,18 @@
         <tr>
             <td>Select flags to blacklist:</td>
             <td>
-                <select v-model="selectedOptiontoflags">
+                <select v-model="selectedOptiontoflags" class="custom-select" >
                 <option value="default">No blackflag</option>
                 <option v-for="(item, index) in flagsoptions" :key="index" :value="index">{{ item }}</option>
                  </select>
             </td>
         </tr>
         <tr>
-            <td>
-                <input type="button" value="Translate" @click="sendValueToComponent2" style="margin-left: 5px;">
+            <td class="text-center">
+                <input type="button" value="Translate" @click="sendValueToComponent2"  class="btn btn-success" >
             </td>
-            <td>
-                <button type="submit" style="margin-right: 5px;">Submit</button>
+            <td class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
             </td>
             
             
@@ -51,7 +51,7 @@
         <textarea 
           type="text" 
           v-model="translatedtext" 
-          rows="20"
+          rows="10"
           cols="40"
           class="no-resize"
           style="margin-top: 10px;

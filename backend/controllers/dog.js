@@ -33,6 +33,8 @@ var index=0;
 ///</return>
 export async function getdogimage(req,res)
 {
+    
+    try {
     console.log("imageget get")
     const translate = await fetch(dogAPIurl, {
     method: "GET",
@@ -41,6 +43,11 @@ export async function getdogimage(req,res)
     var pic = await translate.json();
     console.log("imageget send")
     res.status(200).send(JSON.stringify(pic));
+    }catch(err)
+    {
+        console.error("An error occurred", error);
+        res.status(401).send({ error: "something wrong" });
+    }
 
 }
 
@@ -52,6 +59,7 @@ export async function getdogimage(req,res)
 ///</return>
 export async function savedogimage(req,res)
 {
+    try {
     console.log("imgesave get")
     const imglink = req.body.imglink;
     const current_index = index;
@@ -59,6 +67,10 @@ export async function savedogimage(req,res)
     index+=1
     console.log("imgesave send")
     res.status(200).send(fakedatabaseList[current_index]);
+    } catch{
+        console.error("An error occurred", error);
+        res.status(401).send({ error: "something wrong" });         
+    }
 
 }
 
@@ -70,6 +82,7 @@ export async function savedogimage(req,res)
 ///</return>
 export async function deletedogimage(req,res)
 {
+    try {
     console.log("imgdelete get")
     const imgid = req.body.imgid
     if(fakedatabaseList[imgid]==undefined)
@@ -81,6 +94,10 @@ export async function deletedogimage(req,res)
         delete fakedatabaseList[imgid]
         res.status(200).send(fakedatabaseList);
     }
+    } catch(err){
+        console.error("An error occurred", error);
+        res.status(401).send({ error: "something wrong" });   
+    }
 }
 
 ///<summary>
@@ -88,8 +105,14 @@ export async function deletedogimage(req,res)
 ///</summary>
 export async function getalldogimage(req,res)
 {
+    try{
     console.log("imgall get")
     var pics = JSON.stringify(fakedatabaseList)
     console.log("imgall send")
     res.status(200).send(JSON.parse(pics));
+    } catch(err)
+    {
+        console.error("An error occurred", error);
+        res.status(401).send({ error: "something wrong" });   
+    }
 }

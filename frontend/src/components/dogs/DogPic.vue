@@ -4,8 +4,8 @@
     </div>
     <div id="app">
 
-        <button @click="addData" class="button-spacing">Like</button>
-        <button @click="getData" class="button-spacing">click me</button>
+        <button @click="addData" class="button-spacing btn btn-outline-warning">Like</button>
+        <button @click="getData" class="button-spacing btn btn-outline-primary">Click</button>
         <a href="/dogshow" class="button-spacing" type="button">Gallery</a>
         <div v-if="responseData">
             <img :src="responseData.message" alt="doggy" style="margin-top: 10px;" class="dog-image"/>
