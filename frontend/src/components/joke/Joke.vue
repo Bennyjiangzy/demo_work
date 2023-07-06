@@ -91,7 +91,7 @@
             submitForm(event) {
                 event.preventDefault(); 
                 
-
+                this.translatedtext = "loading....."
                 const requestBody = {
                     categories: [this.categoriesptions[this.selectedOptiontocategory]],
                     blacklistFlags: this.selectedOptiontoflags == "default"? [] : [this.flagsoptions[this.selectedOptiontoflags]],
@@ -101,8 +101,18 @@
 
                 axios.post(settings.jokeapi, requestBody,{headers:{'Content-Type': 'application/json'}})
                     .then(response => {
-                        // console.log(response.data.setup)
-                        this.translatedtext = response.data.setup
+                        if(response.data.type == "single")
+                        {
+                            this.translatedtext = response.data.joke
+                        }else if(response.data.type == "twopart")
+                        {
+                            let joke = response.data.setup + "\n\n" +response.data.delivery
+                            this.translatedtext = joke
+                        } else
+                        {
+                            this.translatedtext = "Try again"
+                        }
+                        
             
                     })
                     .catch(error => {
