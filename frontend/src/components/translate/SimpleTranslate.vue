@@ -130,25 +130,24 @@
         },
         fetchData(formData) {
             return axios.post(settings.translateapiurl, formData,{headers:{'Content-Type': 'application/json'}});
-        },
-        computed: {
-            debouncedInput() {
-                return this.inputText.trim();
-            }
-        },
-        watch: {
-            debouncedInput(newValue) {
-            if (newValue !== '') {
-                this.fetchData();
-            } else {
-                this.searchResults = [];
-            }
-            }
-        },
+        }
+        
     },
+    watch: {
+      receivedValue(newValue) {
+        this.inputText=newValue
+        this.selectedOptiontext='auto'
+        this.handleInput();
+        console.log('Received value:', newValue);
+        },
+      },
     name: 'SimpleTranslate',
     props: {
-      msg: String
+      msg: String,
+      receivedValue: {
+        type: String,
+        default: '',
+    },
     }
   }
   </script>

@@ -6,7 +6,7 @@
 
         <button @click="addData" class="button-spacing">Like</button>
         <button @click="getData" class="button-spacing">click me</button>
-        <router-link to="/dogshow" class="button-spacing">Gallery</router-link>
+        <a href="/dogshow" class="button-spacing" type="button">Gallery</a>
         <div v-if="responseData">
             <img :src="responseData.message" alt="doggy" style="margin-top: 10px;" class="dog-image"/>
         </div>

@@ -6,6 +6,7 @@
         "saveimg":"http://146.190.174.177:8000/dog/saveimage",
         "allimg":"http://146.190.174.177:8000/dog/allimage"
     },
+    "jokeapi":"http://146.190.174.177:8000/joke",
     "translateoptions":{
         "en":"English",
         "ar":"Arabic",
@@ -37,5 +38,14 @@
         "tr":"Turkish",
         "sv":"Swedish",
         "uk":"Ukranian"
-    }
+    },
+    "jokelangoptions":{
+        "cs":"Czech",
+        "de":"German",
+        "en":"English",
+        "fr":"French",
+        "pt":"Portuguese"
+    },
+    "jokecategories":["Any", "Misc", "Programming", "Dark", "Pun", "Spooky", "Christmas"],
+    "jokeflags": ["nsfw","religious","political","racist","sexist","explicit"]
 }
