@@ -19,6 +19,7 @@
       class="no-resize"
       style="margin-top: 10px;"
       ></textarea>
+      <p v-if="autodetectsource">{{ "AutoDetect: " + autodetectsource + " " + autodetectrate + "%"}}</p>
     </div>
 
 
@@ -55,7 +56,9 @@
       options: settings.translateoptions,
       inputText: '',
       translatedtext: 'Hello',
-      timeoutId: null
+      timeoutId: null,
+      autodetectsource: null,
+      autodetectrate: null
     };
     },
     methods: {
@@ -91,6 +94,23 @@
                       try {
                             const response = await this.fetchData(formData);
                             this.translatedtext = response.data.translatedText;
+                            
+                            if (this.selectedOptiontext == 'auto')
+                            {
+                              console.log(this.selectedOptiontext)
+                              let detectsource = response.data.detectedLanguage.language;
+                              console.log(detectsource)
+                              this.autodetectsource = this.options[detectsource]
+                              this.autodetectrate = response.data.detectedLanguage.confidence
+                              console.log(this.autodetectsource)
+                              console.log(this.autodetectrate)
+                            }
+                            else
+                            {
+                              this.autodetectsource = null
+                              this.autodetectrate = null
+                            }
+                            
                           } catch (error) {
                             if (error.response && error.response.status === 500) {
                               console.log("Server error occurred:", error.response.data);

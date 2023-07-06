@@ -1,18 +1,23 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-// import SimpleTranslate from './components/SimpleTranslate.vue'
-// import DogPic from './components/DogPic.vue';
+import SimpleTranslate from './translate/SimpleTranslate.vue'
+import DogPic from './dogs/DogPic.vue';
 
 export default {
-  name: 'App',
+  name: 'hello-test',
   components: {
-
+    SimpleTranslate,
+    DogPic
   }
 }
 </script>
 
 <template>
-  <router-view></router-view>
+  <h1>Your translate</h1>
+  <SimpleTranslate/>
+
+  <DogPic/>
+
 </template>
 
 <style>
@@ -25,3 +30,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+

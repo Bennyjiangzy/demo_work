@@ -2,8 +2,9 @@
     "translateapiurl":"http://146.190.174.177:8000/translate",
     "dogapiurl":{
         "getimg":"http://146.190.174.177:8000/dog/image",
-        "deleteimg":"http://146.190.174.177:8000/dog/saveimage",
-        "saveimg":"http://146.190.174.177:8000/dog/deleteimage"
+        "deleteimg":"http://146.190.174.177:8000/dog/deleteimage",
+        "saveimg":"http://146.190.174.177:8000/dog/saveimage",
+        "allimg":"http://146.190.174.177:8000/dog/allimage"
     },
     "translateoptions":{
         "en":"English",

@@ -23,12 +23,13 @@ var index=0;
 
 export async function getdogimage(req,res)
 {
-    console.log("one img get")
+    
     const translate = await fetch(dogAPIurl, {
     method: "GET",
     headers: { "Content-Type": "application/json" }
     });
     var pic = await translate.json();
+    console.log("one img get")
     res.status(200).send(JSON.stringify(pic));
 
 }
@@ -39,17 +40,20 @@ export async function savedogimage(req,res)
     const current_index = index;
     fakedatabaseList[current_index] = imglink;
     index+=1
+    console.log("one img save")
     res.status(200).send(fakedatabaseList[current_index]);
 
 }
 
 export async function deletedogimage(req,res)
 {
-    const imgid = req.query.imgid
+    const imgid = req.body.imgid
     if(fakedatabaseList[imgid]==undefined)
     {
-        res.status(404).send("The img undefind");
+        console.log("img not found")
+        res.status(401).send("The img undefind");
     }else{
+        console.log("img delete")
         delete fakedatabaseList[imgid]
         res.status(200).send(fakedatabaseList);
     }
@@ -57,5 +61,7 @@ export async function deletedogimage(req,res)
 
 export async function getalldogimage(req,res)
 {
-    res.status(200).send(fakedatabaseList);
+    console.log("img get")
+    var pics = JSON.stringify(fakedatabaseList)
+    res.status(200).send(JSON.parse(pics));
 }

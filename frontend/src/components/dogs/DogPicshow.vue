@@ -1,0 +1,89 @@
+<template>
+
+    <div id="app" >
+        <router-link to="/" class="button-spacing">Back Home</router-link>
+        <h1>Your dogs Gallery</h1>
+        <div class="image-container">
+        <div v-for="(image, index) in images" :key="index" class="image-container">
+            <img :src="image.message" :id="index" alt="Image"  class="gallery-image"/>
+            <button @click="deleteImage(index)" class="delete-button small-button">Delete</button>
+        </div>
+        </div>
+    
+    </div>
+    
+    
+</template>
+      
+    
+      <script>
+      import axios from 'axios';
+      import settings from '@/assets/appsetting.json'
+    
+      export default {
+        data() {
+            return {
+                images: [],
+            };
+        },
+        methods: {
+            deleteImage(id) {
+                const bodydata =
+                {
+                    imgid: id
+                }
+                axios.post(settings.dogapiurl.deleteimg, bodydata,{headers:{'Content-Type': 'application/json'}})
+                .then((response) => {
+                    console.log(response.data)
+                    this.images = response.data
+                })
+                .catch((error) => {
+        
+                console.error(error);
+                });
+                }
+        },
+        created() {
+            axios.get(settings.dogapiurl.allimg)
+            .then((response) => {
+                console.log(response.data)
+                this.images = response.data
+            })
+            .catch((error) => {
+    
+            console.error(error);
+            });
+            },
+        name: 'DogPic',
+        props: {
+          msg: String
+        }
+      }
+      </script>
+    
+      <style scoped>
+    
+    .gallery-image {
+  width: 200px; 
+  height: 200px; 
+  object-fit: cover; 
+  margin: 10px; 
+}
+
+.image-container {
+  display: flex; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+}
+
+.delete-button {
+  margin-left: 10px;
+}
+
+.small-button {
+  width: 80px; 
+  height: 30px; 
+  font-size: 14px;
+}
+      </style>
+      

@@ -2,17 +2,19 @@
 // import HelloWorld from './components/HelloWorld.vue'
 // import SimpleTranslate from './components/SimpleTranslate.vue'
 // import DogPic from './components/DogPic.vue';
+import DogPicshow from './dogs/DogPicshow.vue';
 
 export default {
-  name: 'App',
+  name: 'dog-show',
   components: {
-
+    DogPicshow
   }
 }
 </script>
 
 <template>
-  <router-view></router-view>
+  <DogPicshow/>
+
 </template>
 
 <style>
@@ -25,3 +27,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+
