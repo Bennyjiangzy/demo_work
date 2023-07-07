@@ -10,11 +10,11 @@ This is a demo work for API integration. In Backend I used Node&Express. In Fron
 ![image](./structure.png)
 
 # Installation
-### Common changes <a id="common-changes"></a>
+### Initial settings <a id="initial-settings"></a>
 You need to replace the api address and add api key in backend for LibreTranslate.
 And change the API address in frontend
 
-* **Backend**: LibreTranslate API url (you can [deploy](https://github.com/LibreTranslate/LibreTranslate/tree/main#install-and-run) by your. I have already deployed one on live. I will not close it until my demo is done. If you need it you don't need to change the settings below)
+* **Backend**: LibreTranslate API url (you can [deploy](https://github.com/LibreTranslate/LibreTranslate/tree/main#install-and-run) by your. You can directly use the url I configured in the json will not close that translate server until my demo is done)
 ```json
 /backend/appsettings.json
 
@@ -34,7 +34,7 @@ And change the API address in frontend
 I recommed use docker it will save a lot of time, you can simply run it the same way on the cloud by the following steps:
 * Install [docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) on your local or vm
 * Git clone this repo
-* Change the [common settings](#common-changes)
+* Change the [initial settings](#initial-settings)
 * Run the following command
 ```bash
 
@@ -61,7 +61,7 @@ You should be able to access the web in http://{your_vm_ip or localhost }:8080
 ### Local
 You can run the following steps to run the apps locally
 * Git clone this repo
-* Change the [common settings](#common-changes)
+* Change the [initial settings](#initial-settings)
 * Install [Vue](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/vue-on-windows)
 * Install [TypeScript](https://www.typescriptlang.org/download#:~:text=You%20can%20use%20npm%20to,tsc%20for%20one%2Doff%20occasions.)
 * Run the following command
